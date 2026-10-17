@@ -29,10 +29,10 @@ export function GlassNav() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const { scrollY } = useScroll();
-  const scrollWave = useSpring(scrollY, { stiffness: 120, damping: 28, mass: 0.35 });
-  const waveX = useTransform(scrollWave, (value) => Math.sin(value / 115) * 3);
-  const waveRotate = useTransform(scrollWave, (value) => Math.sin(value / 160) * 0.18);
+  // const { scrollY } = useScroll();
+  // const scrollWave = useSpring(scrollY, { stiffness: 120, damping: 28, mass: 0.35 });
+  // const waveX = useTransform(scrollWave, (value) => Math.sin(value / 115) * 3);
+  // const waveRotate = useTransform(scrollWave, (value) => Math.sin(value / 160) * 0.18);
 
   useEffect(() => {
     setOpen(false);
@@ -63,7 +63,6 @@ export function GlassNav() {
     <>
       <motion.header
         initial={false}
-        style={{ x: waveX, rotate: waveRotate }}
         className="fixed inset-x-0 top-3 z-50 flex max-w-full justify-center px-3 sm:top-5 sm:px-4"
       >
         <nav className="glass specular flex max-w-full items-center gap-1 rounded-full px-2 py-2 pl-4 sm:pl-5">
